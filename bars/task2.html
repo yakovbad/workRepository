@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Поисковая страница</title>
+	<style type="text/css">
+		.center{
+			margin: auto;
+			width: 350px;
+		}
+		.form {
+			margin-left: 25%;
+		}
+	</style>
+	<script type="text/javascript">
+		function a_value(o) {
+			if (document.getElementById('typeSearch').value != "") {
+				if (o.value == "http://www.google.ru/search") {
+					typeSearch.setAttribute("name", "q")
+					document.forms[0].action = o.value
+
+				}
+				else {
+					typeSearch.setAttribute("name", "text")
+					document.forms[0].action = o.value
+				}	
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="center">
+		<h1>Хочешь что-то найти?</h1>
+		<form action="" method="GET" class ="form"  target="_blank">
+			<p><h4 style="margin: auto">Введите запрос</h4></p>
+			<p><input id = "typeSearch"name = ""></p>
+			<p> Google <input name="search" type=radio value="http://www.google.ru/search" onchange="a_value(this);"></p>
+			<p> Yandex <INPUT name="search" type=radio value="http://yandex.ru/yandsearch" onchange="a_value(this);"></p>
+			<p><input type="submit" value="Найти"></p>
+		</form>
+	</div>
+</body>
+</html>
