@@ -107,3 +107,10 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
+
+chat/node_modules
+chat/.idea/
+Proga/src/Artem/
+Proga/*.txt
+Proga/src/*.rar
+database/
