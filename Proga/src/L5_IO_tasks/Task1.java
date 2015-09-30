@@ -7,10 +7,10 @@ import java.io.FileOutputStream;
 public class Task1 {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
-        FileInputStream inputStream;
-        FileOutputStream outputStream;
+        FileInputStream inputStream = null;
+        FileOutputStream outputStream = null;
         try {
             inputStream = new FileInputStream("input.txt");
             outputStream = new FileOutputStream("output.txt");
@@ -25,6 +25,9 @@ public class Task1 {
 
         } catch (Exception IO) {
 
+        } finally {
+            inputStream.close();
+            outputStream.close();
         }
     }
 }

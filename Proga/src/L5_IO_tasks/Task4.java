@@ -6,11 +6,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class Task4 {
-    public static void main(String[] args) {
-        FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream;
-        BufferedInputStream bufferedInputStream;
-        BufferedOutputStream bufferedOutputStream;
+    public static void main(String[] args) throws Exception {
+        FileInputStream fileInputStream = null;
+        FileOutputStream fileOutputStream = null;
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
         long timeStartFile;
         long timeStartBuff;
 
@@ -33,14 +33,18 @@ public class Task4 {
             bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
             timeStartBuff = System.currentTimeMillis();
 
-            byte [] a = new byte[fileInputStream.available()];
+            byte[] a = new byte[fileInputStream.available()];
             bufferedInputStream.read(a);
             bufferedOutputStream.write(a);
             bufferedOutputStream.close();
             System.out.println("Время работы BufferedInputsStream: " + (System.currentTimeMillis() - timeStartBuff) + " мс");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
+            fileInputStream.close();
+            fileOutputStream.close();
+            bufferedInputStream.close();
+            bufferedOutputStream.close();
         }
     }
 }
