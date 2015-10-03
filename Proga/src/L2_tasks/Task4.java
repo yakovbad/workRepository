@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 
 public class Task4 {
     public static void main(String[] args) {
-        String test = "This \"huge test\" is pointless";
+        String test = "This \"huge test\" is pointless. I \"can't do;\" it;";
 
 
-        Pattern pattern = Pattern.compile("(\"[^\"]*\"|[^\" ]+)");
+        Pattern pattern = Pattern.compile("(\"[^\"]*\"|[^\" \\p{Punct}]+)");
         Matcher matcher = pattern.matcher(test);
         while (matcher.find()) {
-            System.out.print(test.substring(matcher.start(), matcher.end()).replace("\"","") + ", ");
+            System.out.print(test.substring(matcher.start(), matcher.end()).replace("\"", "") + ", ");
         }
         System.out.println();
 
